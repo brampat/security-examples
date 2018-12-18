@@ -5,37 +5,31 @@ import groovy.util.logging.Slf4j
 @Slf4j
 class ExtraLongDuration {
 
-    private static int SECONDS_IN_MINUTE = 60
-    private static int SECONDS_IN_HOUR = SECONDS_IN_MINUTE * 60
-    private static int SECONDS_IN_DAY = SECONDS_IN_HOUR * 24
-    private static int SECONDS_IN_YEAR = SECONDS_IN_DAY * 365
-    private static int SECONDS_IN_MILLENNIUM = SECONDS_IN_YEAR * 1000
+    private static long SECONDS_IN_MINUTE = 60
+    private static long SECONDS_IN_HOUR = SECONDS_IN_MINUTE * 60
+    private static long SECONDS_IN_DAY = SECONDS_IN_HOUR * 24
+    private static long SECONDS_IN_YEAR = SECONDS_IN_DAY * 365
+    private static long SECONDS_IN_MILLENNIUM = SECONDS_IN_YEAR * 1000
 
-    String print(BigInteger seconds) {
-        printAll(seconds)
-    }
+    private BigInteger millennia
+    private BigInteger years
+    private BigInteger days
+    private BigInteger hours
+    private BigInteger minutes
+    private BigInteger seconds
 
-    private printAll(BigInteger remaining) {
-        StringBuffer result = new StringBuffer()
-        remaining = printPart(remaining, SECONDS_IN_MILLENNIUM, " millennia, ", 30, result)
-        remaining = printPart(remaining, SECONDS_IN_YEAR, " years, ", 4, result)
-        remaining = printPart(remaining, SECONDS_IN_DAY, " days, ", 3, result)
-        remaining = printPart(remaining, SECONDS_IN_HOUR, " hours, ", 2, result)
-        remaining = printPart(remaining, SECONDS_IN_MINUTE, " minutes, ", 2, result)
-        result.append(String.format("%2s", remaining) + " seconds")
-        return result.toString()
-    }
-
-    private BigInteger printPart(BigInteger remaining, int divider, String description, int positions, StringBuffer stringBuffer) {
-        BigInteger[] result = remaining.divideAndRemainder(divider)
-        stringBuffer.append(String.format("%${positions}s", result[0]) + description)
-        return result[1]
-    }
-
-
-
-    private String printOnly(BigInteger remaining) {
-        return ""
+    ExtraLongDuration(BigInteger seconds) {
+        BigInteger[] remaining = seconds.divideAndRemainder(SECONDS_IN_MILLENNIUM)
+        this.millennia = remaining[0]
+        remaining = remaining[1].divideAndRemainder(SECONDS_IN_YEAR)
+        this.years = remaining[0]
+        remaining = remaining[1].divideAndRemainder(SECONDS_IN_DAY)
+        this.days = remaining[0]
+        remaining = remaining[1].divideAndRemainder(SECONDS_IN_HOUR)
+        this.hours = remaining[0]
+        remaining = remaining[1].divideAndRemainder(SECONDS_IN_MINUTE)
+        this.minutes = remaining[0]
+        this.seconds = remaining[1]
     }
 
 }
