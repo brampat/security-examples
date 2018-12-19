@@ -2,6 +2,7 @@ package nl.patelski.examples.password.complexity.utils
 
 /**
  * Mask options for passwords, based on Hashcat mask, as found here: https://www.4armed.com/blog/perform-mask-attack-hashcat/
+ * These can be used to create password-patterns that either fit a password-policy or a usage-pattern.
  */
 enum MaskSymbol {
 
@@ -12,9 +13,9 @@ enum MaskSymbol {
     ASCII(128L, "I"), // All ASCII
     SYMBOL(33, "s"), //  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ (including space)
     ALPHA_SYMBOL(95L, "a"), // Alphanumeric or symbol, used by most password-generators
-    UTF8(137000L, "8"),
-    ENGLISH_WORDS(35000L, "E"),
-    DICTIONARY_WORDS(171476L, "D"),
+    UTF8(137000L, "8"), // The UTF8 characterset knows about 137k visible non-control (enter, backspace) characters
+    ENGLISH_WORDS(35000L, "E"), // The average person knows about 20-35k words
+    DICTIONARY_WORDS(171476L, "D"), // The English dictionary holds about 171k words
     UNKNOWN(0L, "")
 
     MaskSymbol(long options, String symbol) {
