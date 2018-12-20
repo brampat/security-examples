@@ -1,7 +1,10 @@
 package nl.patelski.examples.password.complexity.utils
 
+import groovy.transform.AutoClone
+
 import java.time.LocalDate
 
+@AutoClone
 class CrackingRig {
 
     String url

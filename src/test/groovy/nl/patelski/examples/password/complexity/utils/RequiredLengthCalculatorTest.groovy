@@ -30,7 +30,7 @@ class RequiredLengthCalculatorTest extends Specification {
     }
 
     @Unroll
-    def "Test log"() {
+    def "Log #x (#a) is #expected"() {
 
         given:
         subject
@@ -46,7 +46,8 @@ class RequiredLengthCalculatorTest extends Specification {
         x   |   a       ||  expected
         10  |   100     ||  2
         10  |   1000    ||  3
-
+        3   |   27      ||  3
+        2   |   64      ||  6
     }
 
 

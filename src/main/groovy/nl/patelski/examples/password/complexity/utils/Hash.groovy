@@ -9,5 +9,4 @@ enum Hash {
     SCRYPT,
     BCRYPT
 
-
 }

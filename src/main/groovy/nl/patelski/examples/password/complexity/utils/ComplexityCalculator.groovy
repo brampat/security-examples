@@ -9,6 +9,7 @@ class ComplexityCalculator {
     CrackingRig usedRig =
 //            ExampleCrackingRigs.rigs["4xGTX1070"]
             ExampleCrackingRigs.rigs["Brutalis"]
+//    ExampleCrackingRigs.rigs["Brutalis40x"]
 
 
     static int[] C = [30, 8, 12, 50, 100] // Column-formats
@@ -31,8 +32,8 @@ class ComplexityCalculator {
 
     static void main(String[] args) {
         ComplexityCalculator calculator = new ComplexityCalculator()
-        calculator.printExamples()
-//        calculator.printMatrix()
+//        calculator.printExamples()
+        calculator.printMatrix()
     }
 
     private void printMatrix() {

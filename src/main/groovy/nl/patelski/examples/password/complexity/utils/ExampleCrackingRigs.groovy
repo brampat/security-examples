@@ -1,7 +1,10 @@
 package nl.patelski.examples.password.complexity.utils
 
+import groovy.util.logging.Slf4j
+
 import java.time.LocalDate
 
+@Slf4j
 class ExampleCrackingRigs {
 
     static Map<String, CrackingRig> rigs = [
@@ -58,11 +61,20 @@ class ExampleCrackingRigs {
                     memory: "",
                     price: "",
                     buildTime: LocalDate.of(1, 1, 6)
-            ),
-
-
-
-
+            )
     ]
+
+    static {
+        rigs.put("Brutalis40x", multiplyCrackingRig(40, "Brutalis"))
+    }
+
+
+    static multiplyCrackingRig(int multiplier, String baseRig) {
+        CrackingRig result = rigs[baseRig].clone()
+        result.speeds.each { entry ->
+            entry.value *= multiplier
+        }
+        return result
+    }
 
 }

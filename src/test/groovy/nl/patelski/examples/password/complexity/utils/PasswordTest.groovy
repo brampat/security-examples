@@ -8,7 +8,7 @@ import spock.lang.Unroll
 class PasswordTest extends Specification {
 
     @Unroll
-    void "A number-slot with #positions dials and #options options per dials should have #space number of possibilities"() {
+    void "A number-slot with #password.length dials and #password.options options per dials should have #space number of possibilities"() {
         given:
         password
 
@@ -26,7 +26,7 @@ class PasswordTest extends Specification {
     }
 
     @Unroll
-    void "A password of length #positions and #options options per character should have #space number of possibilities"() {
+    void "A password of length #password.length and #password.options options per character should have #space number of possibilities"() {
         given:
         password
 
