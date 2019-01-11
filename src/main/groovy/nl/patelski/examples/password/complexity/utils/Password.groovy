@@ -24,8 +24,14 @@ enum Password {
     // 26^10: Only using lowercase characters
     LOWERCASE_10X(" 10x Lowercase", 10, 26),
 
-    // 26^6 * 10^2: Fits most password-policies and widely used, but has very limited password-space.
-    LONDON18_PATTERN(" Pattern like 'London18'", "ullllldd"),
+    // 35000 * 10^2: A random word with a number. Fits most password-policies and widely used, but has very limited password-space.
+    RANDOM18_PATTERN(" Pattern like 'Random18'", "Edd"),
+
+    // 27000 * 10^2: A random USA city with a number. Fits most password-policies and widely used, but has very limited password-space.
+    DENVER18_PATTERN(" Pattern like 'Denver18'", "cdd"),
+
+    // 2000000 * 10^2: A random world city with a number. Fits most password-policies and widely used, but has very limited password-space.
+    WORLDCITY_18_PATTERN(" 'Denver18' or 'London19'", "Cdd"),
 
     // 35000^4: The average person knows about 20-35k words. This pattern illustrates a passphrase using that vocabulary
     ENGLISH_WORDS_4X(" 4x English words", "EEEE"),

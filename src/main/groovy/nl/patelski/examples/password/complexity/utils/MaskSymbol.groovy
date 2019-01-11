@@ -16,6 +16,8 @@ enum MaskSymbol {
     UTF8(137000L, "8"), // The UTF8 characterset knows about 137k visible non-control (enter, backspace) characters
     ENGLISH_WORDS(35000L, "E"), // The average person knows about 20-35k words
     DICTIONARY_WORDS(171476L, "D"), // The English dictionary holds about 171k words
+    USA_CITIES(27000L, "c"), // Cities in the USA according to https://www.quora.com/How-many-towns-and-cities-are-there-in-the-world
+    CITIES(2000000L, "C"), // Cities in the world according to https://www.quora.com/How-many-towns-and-cities-are-there-in-the-world
     UNKNOWN(0L, "")
 
     MaskSymbol(long options, String symbol) {

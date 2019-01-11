@@ -11,8 +11,8 @@ class Demo {
 
         DiffieHellmanCalculator calculator = new DiffieHellmanCalculator()
 
-        BigInteger p = BigInteger.valueOf(23)
-        BigInteger g = BigInteger.valueOf(5)
+        BigInteger p = BigInteger.valueOf(13)
+        BigInteger g = BigInteger.valueOf(6)
 //        BigInteger p = new BigInteger(System.console().readLine("All, choose a prime-number: "))
 //        BigInteger g = new BigInteger(System.console().readLine("All, choose another prime-number: "))
 
