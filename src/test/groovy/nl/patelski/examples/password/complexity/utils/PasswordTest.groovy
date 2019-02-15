@@ -59,7 +59,7 @@ class PasswordTest extends Specification {
         Password.DECIMAL_NUMBERS_3X     ||  new BigInteger("1000")
         Password.DECIMAL_26X            ||  new BigInteger("100000000000000000000000000")
         Password.LOWERCASE_10X          ||  new BigInteger(26L*26L*26L*26L*26*26*26*26*26*26)
-        Password.LONDON18_PATTERN       ||  new BigInteger("30891577600")
+        Password.DENVER18_PATTERN       ||  new BigInteger("2700000")
         Password.ENGLISH_DICTIONARY_4X  ||  new BigInteger("864596308417753067776")    // 4x English Dictionary - exceeds the MAX of Long
 
     }
