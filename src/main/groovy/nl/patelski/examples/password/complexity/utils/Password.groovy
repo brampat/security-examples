@@ -27,6 +27,9 @@ enum Password {
     // 26^6 * 10^2: Fits most password-policies and widely used, but has very limited password-space.
     LONDON18_PATTERN(" Pattern like 'London18'", "ullllldd"),
 
+    // 95^8: Using the most widely accepted symbols, lower- and uppercase and decimals, an 8-length random password
+    ALPHANUMERIC_SYMBOLS_8X(" 8x alphanumeric or symbol", 'a'*8),
+
     // 35000^4: The average person knows about 20-35k words. This pattern illustrates a passphrase using that vocabulary
     ENGLISH_WORDS_4X(" 4x English words", "EEEE"),
 

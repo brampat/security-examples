@@ -55,11 +55,11 @@ class ExampleCrackingRigs {
                             BCRYPT:      184800
                     ],
                     motherboard: "",
-                    processors: "",
-                    gpus: "8x Nvidia GTX 1080",
-                    storage: "",
-                    memory: "",
-                    price: "",
+                    processors: "2x Intel Xeon E5-2620 v4, 2.1 GHz Eight-core",
+                    gpus: "8x Nvidia GTX 1080 FE",
+                    storage: "2x 512 GB SATA/600 SSD in RAID-1",
+                    memory: "64 GB DDR4 RDIMM ECC",
+                    price: "21169.00 USD",
                     buildTime: LocalDate.of(1, 1, 6)
             )
     ]
