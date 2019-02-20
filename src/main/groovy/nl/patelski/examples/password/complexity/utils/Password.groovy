@@ -33,6 +33,9 @@ enum Password {
     // 2000000 * 10^2: A random world city with a number. Fits most password-policies and widely used, but has very limited password-space.
     WORLDCITY_18_PATTERN(" 'Denver18' or 'London19'", "Cdd"),
 
+    // 95^8: Using the most widely accepted symbols, lower- and uppercase and decimals, an 8-length random password
+    ALPHANUMERIC_SYMBOLS_8X(" 8x alphanumeric or symbol", 'a'*8),
+
     // 35000^4: The average person knows about 20-35k words. This pattern illustrates a passphrase using that vocabulary
     ENGLISH_WORDS_4X(" 4x English words", "EEEE"),
 
