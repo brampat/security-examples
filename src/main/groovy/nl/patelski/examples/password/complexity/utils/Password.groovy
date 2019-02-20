@@ -39,6 +39,9 @@ enum Password {
     // 171000^4: When basing a passphrase on the English dictionary, containing 171k words, the password-space is much bigger
     ENGLISH_DICTIONARY_4X(" 4x English Dictionary", "DDDD"),
 
+    // 62^8: Using all lower- and uppercase characters and decimal numbers
+    ALPHANUMERIC_8X(" 8x All alphanumeric", 8, 26+26+10),
+
     // 62^10: Using all lower- and uppercase characters and decimal numbers
     ALPHANUMERIC_10X(" 10x All alphanumeric", 10, 26+26+10),
 
@@ -68,6 +71,12 @@ enum Password {
     private int options
     private String pattern
 
+    /**
+     * A password with all similar elements and a given length
+     * @param description A description of this password
+     * @param length The length of this password
+     * @param options The number of options for each position
+     */
     Password(String description, int length, int options) {
         this.description = description
         this.length = length
@@ -75,12 +84,21 @@ enum Password {
         this.pattern = ""
     }
 
+    /**
+     * A password following a specific pattern
+     * @param description A description of this password
+     * @param pattern The pattern for this password, using {@link nl.patelski.examples.password.complexity.utils.MaskSymbol}
+     */
     Password(String description, String pattern) {
         this.description = description
         this.pattern = pattern
         this.length = pattern.length()
     }
 
+    /**
+     * Calculates the full password-space for a given password.
+     * @return A BigInteger with the full password-space
+     */
     BigInteger passwordSpace() {
         if (this.pattern) {
             return space(this.pattern)
@@ -89,14 +107,31 @@ enum Password {
         }
     }
 
+    /**
+     * Calculates the password space for a password with only similar elements
+     * @param positions The number of positions (length) of the password
+     * @param options The number of options (complexity) for each position
+     * @return A BigInteger with the full password-space
+     */
     private BigInteger space(int positions, int options) {
         return options.power(positions)
     }
 
+    /**
+     * Calculates the password space for a pattern-based password
+     * @param pattern The pattern of the password
+     * @return A BigInteger with the full password-space
+     */
     private BigInteger space(List<MaskSymbol> pattern) {
+        // Multiply each position's options, starting with base 1.
         return pattern.options.inject(1L) { BigInteger count, BigInteger it -> count * it }
     }
 
+    /**
+     * Calculates the password space for a pattern-based password
+     * @param pattern The pattern of the password
+     * @return A BigInteger with the full password-space
+     */
     private BigInteger space(String pattern) {
         return space(pattern.collect{ MaskSymbol.getEnum(it) }.toList())
     }

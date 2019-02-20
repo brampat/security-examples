@@ -2,6 +2,7 @@ package nl.patelski.examples.pwndpassword
 
 /**
  * Simple Groovy script that calls the Pwned Passwords API using k-Anonymity to check a given password
+ * Source of the data is https://haveibeenpwned.com/
  */
 class PwndPassword {
 

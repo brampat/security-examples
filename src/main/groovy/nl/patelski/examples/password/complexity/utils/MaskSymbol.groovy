@@ -14,8 +14,8 @@ enum MaskSymbol {
     SYMBOL(33, "s"), //  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ (including space)
     ALPHA_SYMBOL(95L, "a"), // Alphanumeric or symbol, used by most password-generators
     UTF8(137000L, "8"), // The UTF8 characterset knows about 137k visible non-control (enter, backspace) characters
-    ENGLISH_WORDS(35000L, "E"), // The average person knows about 20-35k words
-    DICTIONARY_WORDS(171476L, "D"), // The English dictionary holds about 171k words
+    ENGLISH_WORDS(35000L, "E"), // The average person knows about 20-35k words. Source: https://www.economist.com/johnson/2013/05/29/lexical-facts
+    DICTIONARY_WORDS(171476L, "D"), // The English dictionary holds about 171k words. Source: https://www.quora.com/How-many-words-are-there-in-the-English-language
     USA_CITIES(27000L, "c"), // Cities in the USA according to https://www.quora.com/How-many-towns-and-cities-are-there-in-the-world
     CITIES(2000000L, "C"), // Cities in the world according to https://www.quora.com/How-many-towns-and-cities-are-there-in-the-world
     UNKNOWN(0L, "")

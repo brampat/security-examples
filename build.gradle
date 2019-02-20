@@ -54,9 +54,13 @@ dependencies {
     compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
     compile("org.apache.logging.log4j:log4j-to-slf4j:2.11.1")
     compile("org.slf4j:slf4j-simple:1.6.1")
+    compile ('org.jsoup:jsoup:1.11.3')
+
     testCompile (
             "org.spockframework:spock-core:1.2-groovy-2.5"
     )
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.0.1'
+
 }
 
 mainClassName = "nl.patelski.examples.diffiehellman.demo.Demo"
