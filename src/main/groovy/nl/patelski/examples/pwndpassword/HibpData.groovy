@@ -2,10 +2,14 @@ package nl.patelski.examples.pwndpassword
 
 import groovy.json.JsonSlurper
 import nl.patelski.examples.utils.ColumnPrinter
+import nl.patelski.examples.utils.TablePrinter
 
 import java.text.NumberFormat
 import java.time.LocalDate
 
+/**
+ * Parses all data from the all-breaches API call at https://haveibeenpwned.com/api/v2/breaches into a formatted Markdown table
+ */
 class HibpData {
 
     static int WHEN = 0
@@ -30,8 +34,8 @@ class HibpData {
 
         List<LocalDate> when = result.collect{it.breachDate}
         List<String> lines = new ArrayList<>()
-        List<String> who = columnPrinter.align(result.collect{it.domain}.asList(), ColumnPrinter.Side.LEFT)
-        List<String> howMany = columnPrinter.align(result.collect{"${NumberFormat.getNumberInstance(Locale.UK).format(it.pwnCount)}"}.asList(), ColumnPrinter.Side.RIGHT)
+        List<String> who = columnPrinter.align(result.collect{it.domain}.asList(), TablePrinter.Side.LEFT)
+        List<String> howMany = columnPrinter.align(result.collect{"${NumberFormat.getNumberInstance(Locale.UK).format(it.pwnCount)}"}.asList(), TablePrinter.Side.RIGHT)
         List<String> what = result.collect{"${it.description}"}.asList()
         List<String> source = result.collect{"${it.name}"}.asList()
 
