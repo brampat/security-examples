@@ -24,6 +24,8 @@ class PwndPasswordTest extends Specification {
         password                            ||  expected
         "Password"                          ||  true
         "qwerty"                            ||  true
+        "123456"                            ||  true
+        "P@ssw0rd"                          ||  true
         "iwhbgf34897tsIndad;irunp938u5u"    ||  false
 
     }
