@@ -8,7 +8,7 @@ enum MaskSymbol {
 
     DECIMAL(10L, "d"), // 0123456789
     LOWERCASE(26L, "l"), // abcdefghijklmnopqrstuvwxyz
-    UPPERCASE(26L, "u"), // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    UPPERCASE(26L, "U"), // ABCDEFGHIJKLMNOPQRSTUVWXYZ
     ALPHANUMERIC(62L, "A"), // abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
     ASCII(128L, "I"), // All ASCII
     SYMBOL(33, "s"), //  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ (including space)

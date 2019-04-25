@@ -25,6 +25,9 @@ enum Password {
     LOWERCASE_10X(" 10x Lowercase", 10, 26),
 
     // 35000 * 10^2: A random word with a number. Fits most password-policies and widely used, but has very limited password-space.
+    ULLLLLdd_PATTERN(" Random pattern like 'Ullllldd'", "Ullllldd"),
+
+    // 35000 * 10^2: A random word with a number. Fits most password-policies and widely used, but has very limited password-space.
     RANDOM18_PATTERN(" Pattern like 'Random18'", "Edd"),
 
     // 27000 * 10^2: A random USA city with a number. Fits most password-policies and widely used, but has very limited password-space.
