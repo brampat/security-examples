@@ -9,6 +9,7 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://repo1.maven.org" }
         maven { url "https://plugins.gradle.org/m2/" }
+//        maven { url "http://maven.jahia.org/maven2/"}
         mavenCentral()
     }
     dependencies {
@@ -49,13 +50,14 @@ configurations {
 
 
 dependencies {
-    compile "javax.xml.bind:jaxb-api:2.3.1"
-    compile "com.sun.xml.bind:jaxb-impl:2.3.1"
-    compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+    compile("javax.xml.bind:jaxb-api:2.3.1")
+    compile("com.sun.xml.bind:jaxb-impl:2.3.1")
+    compile("org.codehaus.groovy:groovy-all:${groovyVersion}")
     compile("org.apache.logging.log4j:log4j-to-slf4j:2.11.1")
     compile("org.slf4j:slf4j-simple:1.6.1")
-    compile ('org.jsoup:jsoup:1.11.3')
-
+    compile("org.jsoup:jsoup:1.11.3")
+//    compile("com.sun:tools:1.7.0.13")
+//    compile("com.sun:tools:1.5.0")
     testCompile (
             "org.spockframework:spock-core:1.2-groovy-2.5"
     )
