@@ -23,12 +23,12 @@ It's input can be:
   * a mask for the password, eg:
     * "dddd" for a 4 length numerical (decimal) password
     * "llllllllll" for a 10 character length lowercase only password (no spaces)
-    * "ullllldd" for an 8 character length password like "London18"
+    * "Ullllldd" for an 8 character length password like "London18"
 
 The pattern can be customized using the enum MaskSymbol, which contains the following options:
 * d: Decimal number
 * l: Lowercase character
-* u: Uppercase character, which has the same number of options as lowercase.
+* U: Uppercase character, which has the same number of options as lowercase.
 * A: Alphanumeric character, lowercase, uppercase or numeric
 * a: Alphanumeric or symbol
 * I: ASCII character, 128 options
