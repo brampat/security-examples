@@ -26,17 +26,10 @@ class PwndPassword {
      *         false if the sha1 is from a password not in Pwned Passwords' database
      */
     Boolean checkBySHA1(String sha1) {
-        println(sha1)
         String sha1start = sha1[0..4]
         String sha1end = sha1.substring(5)
-        String result = doRequest(PWND_PASSWORDS_URI + sha1start)
-        return result.contains(sha1end)
-    }
-
-    private String doRequest(String url) {
-        HttpURLConnection connection = new URL( url ).openConnection() as HttpURLConnection
-        connection.setRequestProperty( 'User-Agent', 'groovy-pwndpasswords-example' )
-        return connection.inputStream.text
+        HttpURLConnection connection = new URL( PWND_PASSWORDS_URI + sha1start ).openConnection() as HttpURLConnection
+        return connection.inputStream.text.contains(sha1end)
     }
 
 }
