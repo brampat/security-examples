@@ -30,6 +30,9 @@ enum Password {
     // 35000 * 10^2: A random word with a number. Fits most password-policies and widely used, but has very limited password-space.
     RANDOM18_PATTERN(" Pattern like 'Random18'", "Edd"),
 
+    // Dictionary attack using leaked password-set of 500M passwords
+    LEAKED_PASSWORDS("Pwned Password dictionary", 1, 500000000),
+
     // 27000 * 10^2: A random USA city with a number. Fits most password-policies and widely used, but has very limited password-space.
     DENVER18_PATTERN(" Pattern like 'Denver18'", "cdd"),
 
@@ -71,6 +74,7 @@ enum Password {
 
     // 137000^30: If only we could enter all UTF8 characters. How fast are these quantum computers again?
     UTF8_30X(" 30x UTF8", 30, 137000)
+
 
     private String description
     private int length
