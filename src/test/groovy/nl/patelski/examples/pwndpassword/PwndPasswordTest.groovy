@@ -26,6 +26,7 @@ class PwndPasswordTest extends Specification {
         "qwerty"                            ||  true
         "123456"                            ||  true
         "P@ssw0rd"                          ||  true
+        "correct horse battery staple"      ||  true
         "iwhbgf34897tsIndad;irunp938u5u"    ||  false
 
     }
