@@ -1,7 +1,7 @@
 buildscript {
 
     ext {
-        groovyVersion = "2.5.4"
+        groovyVersion = "2.5.7"
     }
     ext["groovy.version"] = "${groovyVersion}"
 
