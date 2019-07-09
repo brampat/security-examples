@@ -1,9 +1,15 @@
 buildscript {
 
     ext {
-        groovyVersion = "2.5.7"
+        ver = [
+            groovy: "2.5.7",
+            commonsBeanutils: "1.9.3",
+            xercesImpl: "2.12.0",
+            httpclient:  "4.5.9",
+            testng: "6.14.3"
+        ]
     }
-    ext["groovy.version"] = "${groovyVersion}"
+    ext["groovy.version"] = ver.groovy
 
     repositories {
         maven { url "https://plugins.gradle.org/m2/" }
@@ -15,10 +21,6 @@ buildscript {
     dependencies {
         classpath "org.owasp:dependency-check-gradle:4.0.0.1"
     }
-}
-
-ext {
-    groovyVersion = "2.5.4"
 }
 
 apply plugin: "groovy"
@@ -50,19 +52,25 @@ configurations {
 
 
 dependencies {
+    compile("commons-beanutils:commons-beanutils:${ver.commonsBeanutils}")
+    compile("xerces:xercesImpl:${ver.xercesImpl}")
+    compile("org.apache.httpcomponents:httpclient:${ver.httpclient}")
+    testCompile("org.testng:testng:${ver.testng}") {
+        exclude group: 'com.beust', module: 'jcommander'
+    }
+
     compile("javax.xml.bind:jaxb-api:2.3.1")
     compile("com.sun.xml.bind:jaxb-impl:2.3.1")
-    compile("org.codehaus.groovy:groovy-all:${groovyVersion}")
+    compile("org.codehaus.groovy:groovy-all:${ver.groovy}") {
+        exclude group: 'com.beust', module: 'jcommander'
+    }
     compile("org.apache.logging.log4j:log4j-to-slf4j:2.11.1")
     compile("org.slf4j:slf4j-simple:1.6.1")
     compile("org.jsoup:jsoup:1.11.3")
-//    compile("com.sun:tools:1.7.0.13")
-//    compile("com.sun:tools:1.5.0")
     testCompile (
             "org.spockframework:spock-core:1.2-groovy-2.5"
     )
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.0.1'
-
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.9.1'
 }
 
 mainClassName = "nl.patelski.examples.diffiehellman.demo.Demo"
