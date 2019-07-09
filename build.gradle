@@ -52,7 +52,7 @@ configurations {
 
 
 dependencies {
-    compile("commons-beanutils:commons-beanutils:${ver.commonsBeanutils}")
+//    compile("commons-beanutils:commons-beanutils:${ver.commonsBeanutils}")
     compile("xerces:xercesImpl:${ver.xercesImpl}")
     compile("org.apache.httpcomponents:httpclient:${ver.httpclient}")
     testCompile("org.testng:testng:${ver.testng}") {
