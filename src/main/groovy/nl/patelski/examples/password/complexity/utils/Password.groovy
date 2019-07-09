@@ -48,6 +48,9 @@ enum Password {
     // 171000^4: When basing a passphrase on the English dictionary, containing 171k words, the password-space is much bigger
     ENGLISH_DICTIONARY_4X(" 4x English Dictionary", "DDDD"),
 
+    // 7776^5: derived from 5x standard D6 dicerolls
+    DICEWARE_WORDS_5X("5x standard Diceware random word", "WWWWW"),
+
     // 62^8: Using all lower- and uppercase characters and decimal numbers
     ALPHANUMERIC_8X(" 8x All alphanumeric", 8, 26+26+10),
 
