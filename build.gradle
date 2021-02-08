@@ -2,12 +2,14 @@ buildscript {
 
     ext {
         ver = [
-            groovy: "2.5.7",
+            groovy: "2.5.14",
             commonsBeanutils: "1.9.3",
             xercesImpl: "2.12.0",
-            httpclient:  "4.5.9",
+            httpclient:  "4.5.13",
             testng: "7.0.0-beta7",
-            jackson_databind: "2.9.9.2"
+            jackson_databind: "2.12.1",
+            jaxb: "2.3.1",
+            slf4j: "2.14.0"
         ]
     }
     ext["groovy.version"] = ver.groovy
@@ -21,6 +23,10 @@ buildscript {
     dependencies {
         classpath "org.owasp:dependency-check-gradle:4.0.0.1"
     }
+}
+
+plugins {
+    id "org.owasp.dependencycheck" version "6.1.0"
 }
 
 apply plugin: "groovy"
@@ -54,14 +60,14 @@ configurations {
 dependencies {
     compile("xerces:xercesImpl:${ver.xercesImpl}")
     compile("org.apache.httpcomponents:httpclient:${ver.httpclient}")
-    compile("javax.xml.bind:jaxb-api:2.3.1")
-    compile("com.sun.xml.bind:jaxb-impl:2.3.1")
+    compile("javax.xml.bind:jaxb-api:${ver.jaxb}")
+    compile("com.sun.xml.bind:jaxb-impl:${ver.jaxb}")
     compile("org.codehaus.groovy:groovy-all:${ver.groovy}") {
         exclude group: 'org.codehaus.groovy', module: 'groovy-testng'
         exclude group: 'org.testng', module: 'testng'
         exclude group: 'com.beust', module: 'jcommander'
     }
-    compile("org.apache.logging.log4j:log4j-to-slf4j:2.11.1")
+    compile("org.apache.logging.log4j:log4j-to-slf4j:${ver.slf4j}")
     compile("org.slf4j:slf4j-simple:1.6.1")
     compile("org.jsoup:jsoup:1.11.3")
     testCompile (
@@ -83,3 +89,4 @@ task uberjar( type: Jar, dependsOn: [':compileJava',':compileGroovy'] ) {
     // All groovy classes
     from configurations.runtime.asFileTree.files.collect { zipTree(it) }
 }
+
