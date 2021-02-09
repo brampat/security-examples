@@ -2,9 +2,9 @@ buildscript {
 
     ext {
         ver = [
-            groovy: "2.5.14",
+            groovy: "3.0.7",
             commonsBeanutils: "1.9.3",
-            xercesImpl: "2.12.0",
+            xercesImpl: "2.12.1",
             httpclient:  "4.5.13",
             testng: "7.0.0-beta7",
             jackson_databind: "2.12.1",
@@ -56,6 +56,9 @@ configurations {
     }
 }
 
+test {
+    useJUnitPlatform()
+}
 
 dependencies {
     compile("xerces:xercesImpl:${ver.xercesImpl}")
@@ -71,7 +74,7 @@ dependencies {
     compile("org.slf4j:slf4j-simple:1.6.1")
     compile("org.jsoup:jsoup:1.11.3")
     testCompile (
-            "org.spockframework:spock-core:1.2-groovy-2.5"
+            "org.spockframework:spock-core:2.0-M4-groovy-3.0"
     )
     compile "com.fasterxml.jackson.core:jackson-databind:${ver.jackson_databind}"
 }

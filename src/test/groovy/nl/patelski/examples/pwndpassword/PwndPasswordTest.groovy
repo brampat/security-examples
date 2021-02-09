@@ -28,7 +28,7 @@ class PwndPasswordTest extends Specification {
         "P@ssw0rd"                          ||  true
         "correct horse battery staple"      ||  true
         "iwhbgf34897tsIndad;irunp938u5u"    ||  false
-
+        "snowwhiteandthesevendwarves"       ||  false
     }
 
 }
