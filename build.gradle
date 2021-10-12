@@ -2,14 +2,17 @@ buildscript {
 
     ext {
         ver = [
-            groovy: "3.0.7",
             commonsBeanutils: "1.9.3",
-            xercesImpl: "2.12.1",
+            commons_codec: "1.15",
+            groovy: "3.0.9",
             httpclient:  "4.5.13",
-            testng: "7.0.0-beta7",
             jackson_databind: "2.12.1",
             jaxb: "2.3.1",
-            slf4j: "2.14.0"
+            jjwt: "0.9.1",
+            jsoup: "1.14.2",
+            slf4j: "2.14.1",
+            testng: "7.0.0-beta7",
+            xercesImpl: "2.12.1"
         ]
     }
     ext["groovy.version"] = ver.groovy
@@ -63,6 +66,7 @@ test {
 dependencies {
     compile("xerces:xercesImpl:${ver.xercesImpl}")
     compile("org.apache.httpcomponents:httpclient:${ver.httpclient}")
+    implementation("commons-codec:commons-codec:${ver.commons_codec}")
     compile("javax.xml.bind:jaxb-api:${ver.jaxb}")
     compile("com.sun.xml.bind:jaxb-impl:${ver.jaxb}")
     compile("org.codehaus.groovy:groovy-all:${ver.groovy}") {
@@ -72,11 +76,13 @@ dependencies {
     }
     compile("org.apache.logging.log4j:log4j-to-slf4j:${ver.slf4j}")
     compile("org.slf4j:slf4j-simple:1.6.1")
-    compile("org.jsoup:jsoup:1.11.3")
+    compile("org.jsoup:jsoup:${ver.jsoup}")
     testCompile (
-            "org.spockframework:spock-core:2.0-M4-groovy-3.0"
+            "org.spockframework:spock-core:2.0-groovy-3.0"
     )
     compile "com.fasterxml.jackson.core:jackson-databind:${ver.jackson_databind}"
+    compile "io.jsonwebtoken:jjwt:${ver.jjwt}"
+
 }
 
 mainClassName = "nl.patelski.examples.diffiehellman.demo.Demo"
