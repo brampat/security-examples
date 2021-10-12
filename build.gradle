@@ -10,6 +10,7 @@ buildscript {
             jaxb: "2.3.1",
             jjwt: "0.9.1",
             jsoup: "1.14.2",
+            junit: "4.13.2",
             slf4j: "2.14.1",
             testng: "7.0.0-beta7",
             xercesImpl: "2.12.1"
@@ -80,6 +81,7 @@ dependencies {
     testCompile (
             "org.spockframework:spock-core:2.0-groovy-3.0"
     )
+    testImplementation("junit:junit:${ver.junit}")
     compile "com.fasterxml.jackson.core:jackson-databind:${ver.jackson_databind}"
     compile "io.jsonwebtoken:jjwt:${ver.jjwt}"
 
